@@ -74,6 +74,21 @@
             android:textAllCaps="false"
             android:textColor="@color/main" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnViewHistory"
+            android:layout_below="@+id/etCityName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_field"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="center"
+            android:text="View History"
+            android:textAllCaps="false"
+            android:textColor="@color/main" />
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
