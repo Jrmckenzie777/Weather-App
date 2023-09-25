@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dev.weatherapp.adapter.HistoryAdapter;
 import com.dev.weatherapp.database.DatabaseHelper;
+import com.dev.weatherapp.model.HelperClass;
 import com.dev.weatherapp.model.HistoryModel;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onResume();
 
         list.clear();
-        list.addAll(databaseHelper.getAllData());
+        list.addAll(databaseHelper.getAllData(HelperClass.users.getId()));
         if (list.size()>0){
             noDataFound.setVisibility(View.GONE);
             rvHistory.setVisibility(View.VISIBLE);

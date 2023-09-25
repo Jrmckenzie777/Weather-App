@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rlRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating : "
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/main"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRating"
+                android:layout_toRightOf="@+id/tvLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="(5)"
+                android:textSize="17sp"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"/>
+            
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_toRightOf="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_star_24"
+                android:tint="@color/yellow"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlComment"
+            android:layout_below="@+id/rlRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment : "
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/main"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvComment"
+                android:layout_toRightOf="@+id/tvLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nascnnkjcnnsmcmsc"
+                android:layout_centerVertical="true"
+                android:textStyle="normal"
+                android:textColor="@color/main"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlUser"
+            android:layout_below="@+id/rlComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By : "
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textColor="@color/main"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUserName"
+                android:layout_toRightOf="@+id/tvLabel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ABC"
+                android:layout_marginStart="44dp"
+                android:layout_centerVertical="true"
+                android:textStyle="normal"
+                android:textColor="@color/main"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

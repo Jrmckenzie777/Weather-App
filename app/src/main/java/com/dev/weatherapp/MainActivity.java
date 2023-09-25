@@ -13,10 +13,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dev.weatherapp.auth.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText etCityName;
-    AppCompatButton btnCheckWeather, btnViewHistory;
+    AppCompatButton btnCheckWeather, btnViewHistory, btnViewFeedback, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +29,14 @@ public class MainActivity extends AppCompatActivity {
         etCityName = findViewById(R.id.etCityName);
         btnCheckWeather = findViewById(R.id.btnCheckWeather);
         btnViewHistory = findViewById(R.id.btnViewHistory);
+        btnViewFeedback = findViewById(R.id.btnViewFeedback);
+        btnLogout = findViewById(R.id.btnLogout);
 
         btnCheckWeather.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String city = etCityName.getText().toString();
-                if (city.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter city name", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (isInternetAvailable()) {
-                        etCityName.setText("");
-                        Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                        intent.putExtra("city", city);
-                        startActivity(intent);
-                    } else {
-                        // No internet connectivity
-                        Toast.makeText(MainActivity.this, "No internet connection.", Toast.LENGTH_SHORT).show();
-                    }
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CheckWeatherActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -56,17 +48,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private boolean isInternetAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                return true;
+        btnViewFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(intent);
             }
-        }
-        return false;
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+
     }
 
 }

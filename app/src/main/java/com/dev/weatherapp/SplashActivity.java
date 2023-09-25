@@ -11,8 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SplashActivity extends AppCompatActivity {
+import com.dev.weatherapp.auth.LoginActivity;
 
+public class SplashActivity extends AppCompatActivity {
     ImageView ivLogo;
     TextView tvAppName;
     Animation fromTop, fromBottom;
@@ -36,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(3000);
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
                 } catch (InterruptedException e) {
                     Toast.makeText(SplashActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

@@ -3,15 +3,15 @@ package com.dev.weatherapp.model;
 import java.io.Serializable;
 
 public class HistoryModel implements Serializable {
-
-    int id;
+    int id, user_id;
     String cityName, temperature, humidity, wind, clouds, dateTime;
 
     public HistoryModel() {
     }
 
-    public HistoryModel(int id, String cityName, String temperature, String humidity, String wind, String clouds, String dateTime) {
+    public HistoryModel(int id, int user_id, String cityName, String temperature, String humidity, String wind, String clouds, String dateTime) {
         this.id = id;
+        this.user_id = user_id;
         this.cityName = cityName;
         this.temperature = temperature;
         this.humidity = humidity;
@@ -20,7 +20,8 @@ public class HistoryModel implements Serializable {
         this.dateTime = dateTime;
     }
 
-    public HistoryModel(String cityName, String temperature, String humidity, String wind, String clouds, String dateTime) {
+    public HistoryModel(int user_id, String cityName, String temperature, String humidity, String wind, String clouds, String dateTime) {
+        this.user_id = user_id;
         this.cityName = cityName;
         this.temperature = temperature;
         this.humidity = humidity;
@@ -35,6 +36,14 @@ public class HistoryModel implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getCityName() {

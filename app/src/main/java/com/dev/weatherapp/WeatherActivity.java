@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev.weatherapp.database.DatabaseHelper;
+import com.dev.weatherapp.model.HelperClass;
 import com.dev.weatherapp.model.HistoryModel;
 import com.dev.weatherapp.network.APIInterface;
 import com.dev.weatherapp.network.ApiClient;
@@ -62,7 +63,7 @@ public class WeatherActivity extends AppCompatActivity {
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                finish();
             }
         });
 
@@ -108,7 +109,7 @@ public class WeatherActivity extends AppCompatActivity {
                             tvWind.setText(response.body().getWind().getSpeed().toString() + " mph");
                             tvClouds.setText(response.body().getClouds().getAll().toString() + "%");
                             tvDateTime.setText("Date & Time: "+getCurrentDateTime());
-                            HistoryModel model = new HistoryModel(cityName, tvTemp.getText().toString(),
+                            HistoryModel model = new HistoryModel(HelperClass.users.getId(), cityName, tvTemp.getText().toString(),
                                     tvHumidity.getText().toString(), tvWind.getText().toString(),
                                     tvClouds.getText().toString(), getCurrentDateTime());
                             databaseHelper.insertData(model);
